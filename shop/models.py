@@ -2,7 +2,7 @@ from django.core.validators import MaxValueValidator
 from django.db import models
 
 
-class TimeStampedMode(models.Model):
+class TimeStampedModel(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -10,7 +10,7 @@ class TimeStampedMode(models.Model):
         abstract = True
 
 
-class Review(models.Model):
+class Review(TimeStampedModel):
     content = models.TextField()
     score = models.PositiveSmallIntegerField(
         validators=[
