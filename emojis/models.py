@@ -17,13 +17,13 @@ class Emojis(TimeStampedModel):
     description = models.TextField(blank=True)
 
     category = models.CharField(
-        max_length=8,
+        max_length=50,
         choices=[
-            ("Person", "Smileys & People"),
-            ("Nature", "Animals & Nature"),
-            ("Food", "Food & Drink"),
+            ("Smileys & People", "Smileys & People"),
+            ("Animals & Nature", "Animals & Nature"),
+            ("Food & Drink", "Food & Drink"),
             ("Activity", "Activity"),
-            ("Travel", "Travel & Places"),
+            ("Travel & Places", "Travel & Places"),
             ("Objects", "Objects"),
             ("Symbols", "Symbols"),
             ("Flags", "Flags"),
@@ -32,24 +32,12 @@ class Emojis(TimeStampedModel):
         default="Person",
     )
 
-    status = models.CharField(
-        max_length=1,
-        choices=[
-            ("D", "Default"),
-            ("C", "Changed"),
-            ("R", "Removed"),
-        ],
-        db_index=True,
-        default="D",
-    )
+    removed = models.BooleanField(default=False)
 
     released_date = models.CharField(max_length=15)
     released_emoji_version = models.CharField(max_length=20, db_index=True)
 
-    apple_version = models.ImageField()
-    google_version = models.ImageField(blank=True)
-    joypixels_version = models.ImageField(blank=True)
-    twitter_version = models.ImageField(blank=True)
-    samsung_version = models.ImageField(blank=True)
-    microsoft_version = models.ImageField(blank=True)
-    blob_version = models.ImageField(blank=True)
+    apple_version = models.ImageField(blank=True)
+    # google_version = models.ImageField(blank=True)
+    # samsung_version = models.ImageField(blank=True)
+    # microsoft_version = models.ImageField(blank=True)
