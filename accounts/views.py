@@ -1,3 +1,13 @@
-from django.shortcuts import render
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView as OriginTokenObtainPairView,
+    TokenRefreshView as OriginTokenRefreshView,
+)
+from accounts.serializers import TokenObtainPairSerializer
 
-# Create your views here.
+
+class TokenObtainPairView(OriginTokenObtainPairView):
+    serializer_class = TokenObtainPairSerializer
+
+
+class TokenRefreshView(OriginTokenRefreshView):
+    pass
