@@ -32,12 +32,10 @@ class Emojis(TimeStampedModel):
         default="Person",
     )
 
-    removed = models.BooleanField(default=False)
-
     released_date = models.CharField(max_length=15)
     released_emoji_version = models.CharField(max_length=20, db_index=True)
 
     apple_version = models.ImageField(blank=True)
-    # google_version = models.ImageField(blank=True)
+    google_version = models.ImageField(blank=True)
     # samsung_version = models.ImageField(blank=True)
     # microsoft_version = models.ImageField(blank=True)
