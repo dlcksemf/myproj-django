@@ -2,8 +2,6 @@
 
 ## `.env` 예시
 
----
-
 ```
 SECRET_KEY=SECRET KEY
 DEBUG=false
